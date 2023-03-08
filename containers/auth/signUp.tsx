@@ -255,7 +255,7 @@ export default function SignUp(props) {
             alignItems: 'center',
           }}
           txtbxstyl={{height: 50, flex: 1}}
-          plcholder={'Enter Password'}
+          plcholder={'Confirm Password'}
           plcholdercolor={'lightgrey'}
           errTxt={errors?.confirm_password && errors?.confirm_password?.message}
           errTxtstyle={{
