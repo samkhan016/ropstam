@@ -60,7 +60,7 @@ export default function AddVehicle(props) {
     };
 
     try {
-      dispatch(addData(data));
+      dispatch(addData(data)); // update data in redux
     } catch (err) {
       console.log('errrr', err);
     }

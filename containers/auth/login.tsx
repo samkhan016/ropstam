@@ -27,7 +27,7 @@ export default function Login(props) {
   });
 
   const onSubmit = () => {
-    props?.navigation?.reset({index: 0, routes: [{name: 'Home'}]});
+    props?.navigation?.reset({index: 0, routes: [{name: 'Home'}]}); // reset and redirct to home page so the user cannot go back
   };
   return (
     <ImageBackground
@@ -42,7 +42,6 @@ export default function Login(props) {
       <KeyboardAwareScrollView
         style={{
           flex: 1,
-          // backgroundColor: 'white',
         }}
         extraScrollHeight={50}
         contentContainerStyle={{

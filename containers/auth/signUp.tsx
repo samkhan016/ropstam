@@ -34,7 +34,7 @@ export default function SignUp(props) {
   });
 
   const onSubmit = () => {
-    props?.navigation?.reset({index: 0, routes: [{name: 'Home'}]});
+    props?.navigation?.reset({index: 0, routes: [{name: 'Home'}]}); // reset and redirct to home page so the user cannot go back
   };
   return (
     <ImageBackground

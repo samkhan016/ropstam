@@ -51,10 +51,10 @@ export default function Home(props) {
   useEffect(() => {
     if (routeFrom == 'AddVehicle') {
       if (isFocused) {
-        setCars(allVehciles);
+        setCars(allVehciles); // save updated data in redux
       }
     } else {
-      dispatch(setData(cars));
+      dispatch(setData(cars)); // save data in redux
     }
   }, [isFocused]);
 
@@ -62,10 +62,11 @@ export default function Home(props) {
     return (
       <TouchableOpacity
         activeOpacity={0.9}
-        onPress={() =>
-          props?.navigation?.navigate('AddVehicle', {
-            data: item,
-          })
+        onPress={
+          () =>
+            props?.navigation?.navigate('AddVehicle', {
+              data: item,
+            }) // redirect to vehicle detail / add vehicle page with all the info
         }
         style={{
           width: '100%',
@@ -130,6 +131,7 @@ export default function Home(props) {
         btnText={'+ Add Vehicle'}
         onPress={() => props?.navigation?.navigate('AddVehicle')}
       />
+
       <View
         style={{
           width: 270,
