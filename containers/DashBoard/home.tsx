@@ -1,4 +1,4 @@
-import {View, Text, FlatList, StatusBar} from 'react-native';
+import {View, Text, FlatList, StatusBar, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {SubmitButton} from '../../components/submitButton';
 import {useDispatch, useSelector} from 'react-redux';
@@ -60,7 +60,13 @@ export default function Home(props) {
 
   const renderCars = ({item}) => {
     return (
-      <View
+      <TouchableOpacity
+        activeOpacity={0.9}
+        onPress={() =>
+          props?.navigation?.navigate('AddVehicle', {
+            data: item,
+          })
+        }
         style={{
           width: '100%',
           height: 50,
@@ -85,7 +91,7 @@ export default function Home(props) {
         <Text>{item?.brand}</Text>
         <Text>{item?.modal}</Text>
         <Text>{item?.regNo}</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
   return (

@@ -14,27 +14,30 @@ let screenWidth = Math.round(Dimensions.get('window').width);
 let screenHeight = Math.round(Dimensions.get('window').height);
 
 export default function AddVehicle(props) {
+  const editVehicleData = props?.route?.params?.data;
+
   const dispatch = useDispatch();
   const [openMake, setOpenMake] = useState(false);
-  const [makeValue, setMakeValue] = useState(null);
+  const [makeValue, setMakeValue] = useState(editVehicleData?.make || null);
   const [make, setMake] = useState([
-    {label: 'Saloon', value: 'saloon'},
-    {label: 'Jeep', value: 'jeep'},
-    {label: 'Sedan', value: 'sedan'},
-    {label: 'Coupe', value: 'coupe'},
+    {label: 'Saloon', value: 'Saloon'},
+    {label: 'Jeep', value: 'Jeep'},
+    {label: 'Sedan', value: 'Sedan'},
+    {label: 'Coupe', value: 'Coupe'},
   ]);
   const [openBrand, setOpenBrand] = useState(false);
-  const [brandValue, setBrandValue] = useState(null);
+  const [brandValue, setBrandValue] = useState(editVehicleData?.brand || null);
   const [brand, setBrand] = useState([
     {label: 'Toyota', value: 'Toyota'},
     {label: 'Jeep', value: 'Jeep'},
     {label: 'BMW', value: 'BMW'},
     {label: 'Lexus', value: 'Lexus'},
+    {label: 'Mazda', value: 'Mazda'},
   ]);
 
-  const [modal, setModal] = useState('');
-  const [color, setColor] = useState('');
-  const [regNo, setRegNo] = useState('');
+  const [modal, setModal] = useState(editVehicleData?.modal || '');
+  const [color, setColor] = useState(editVehicleData?.color || '');
+  const [regNo, setRegNo] = useState(editVehicleData?.regNo || '');
 
   const {
     handleSubmit,
